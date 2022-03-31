@@ -11,10 +11,10 @@ def my_home():
 def html_page(page_name):
     return render_template(page_name)
 
+@app.route('/submit_form', methods=['POST', 'GET'])
+def submit_form():
+    return 'form submitted?!'
+
 @app.route("/<username>/<int:post_id>")
 def blog(username = None, post_id = None):
     return render_template('index.html', name=username, post_id=post_id)
-
-@app.route("/blog/2022/dogs")
-def blog2():
-    return "<p>This is my second blog post about dog</p>"
